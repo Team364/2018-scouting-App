@@ -28,3 +28,4 @@ To start app:
 cd to project in command prompt
 open emulator/device
 react-native run-android
+Recommended install modules with yarn
