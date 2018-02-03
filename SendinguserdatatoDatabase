@@ -1,0 +1,93 @@
+import React, {Component} from 'react';
+import {AppRegistry, Text, View, StyleSheet, TouchableHighlight, TextInput, Alert} from 'react-native';
+import {StackNavigator} from 'react-navigation';
+import HomeScreen from './HomeScreen';
+
+ class LoginScreen extends Component{
+    constructor(props){
+      super(props);
+      this.state = {
+        username: '',
+      }
+    }
+    static defaultProps = {
+      message: 'Hey there'
+    }
+
+    static navigationOptions = {
+      header: null,
+  };
+  UserRegister = () =>{
+
+
+   const { username }  = this.state ;
+
+
+
+  fetch('http://www.quotin.co/React/user-register.php', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+
+      username: username,
+
+    })
+
+  }).then((response) => response.json())
+        .then((responseJson) => {
+
+  // Showing response message coming from server after inserting records.
+          Alert.alert(responseJson);
+
+        }).catch((error) => {
+          console.error(error);
+        });
+
+
+    }
+    render(){
+      return(
+        <View style={{backgroundColor: '#fff',  flexDirection:'column',  flex: 1, justifyContent:'center', alignItems: 'center'}}>
+          <View style={{ height: 200, justifyContent:'space-between',}}>
+          <Text style={{color: 'black', textAlign: 'center', }}>
+            This is the LoginScreen!
+          </Text>
+          <TextInput
+          onChangeText={username => this.setState({username})}
+          placeholder="Enter Username"
+          >
+
+          </TextInput>
+          <TouchableHighlight
+          style={{backgroundColor: '#333', height: 50, width: 100, justifyContent:'center', alignItems: 'center', marginLeft: 25}}
+          onPress={this.UserRegister}
+          >
+            <Text style={{color: 'white', textAlign: 'center',}}>Register</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight
+          style={{backgroundColor: '#333', height: 50, width: 100, justifyContent:'center', alignItems: 'center', marginLeft: 25}}
+          onPress={() => this.props.navigation.navigate('HomeScreen')}
+          >
+            <Text style={{color: 'white', textAlign: 'center',}}>Back</Text>
+          </TouchableHighlight>
+          </View>
+        </View>
+      );
+    }
+}
+const AppStackNav = StackNavigator ({
+  LoginScreen: {screen: LoginScreen},
+  HomeScreen: {screen: HomeScreen}
+})
+
+const newTextStyle = {
+  fontSize: 30,
+  color: 'white',
+  textAlign: 'center',
+}
+export default LoginScreen;
+AppRegistry.registerComponent('LoginScreen', () => LoginScreen);
