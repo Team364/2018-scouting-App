@@ -1,6 +1,6 @@
 <?php
 // Creating connection.
- $con = mysqli_connect("gator4159.hostgator.com", "mriquotin", "ea2v,eSOc7gb", "mriquoti_user");
+ $con = mysqli_connect("gator4159.hostgator.com", "mriquotin", "****", "mriquoti_user");
  
  // Getting the received JSON into $json variable.
  $json = file_get_contents('php://input');
