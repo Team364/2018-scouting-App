@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry, Platform, StyleSheet, Text, View, Button, Navigator, TouchableHighlight, AsyncStorage, ViewList, ActivityIndicator,ListView} from 'react-native';
+import { AppRegistry, Platform, StyleSheet, Text, View, Button, Navigator, TouchableHighlight, AsyncStorage, ViewList, ActivityIndicator,ListView, FlatList} from 'react-native';
 export default class ProfileScreen extends Component {
   LearnMore1 (){
     console.log ('New User pressed!');
@@ -40,22 +40,20 @@ constructor(props)
 
 componentDidMount() {
 
-     return fetch('http://www.quotin.co/React/user-list.php')
-       .then((response) => response.json())
-       .then((responseJson) => {
-         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-         this.setState({
-           isLoading: false,
-           dataSource: ds.cloneWithRows(responseJson),
-         }, function() {
-           // In this block you can do something with new state.
-         });
-       })
-       .catch((error) => {
-         console.error(error);
-       });
-   }
-
+      return fetch('http://www.quotin.co/React/user-list.php')
+        .then((response) => response.json())
+        .then((responseJson) => {
+          this.setState({
+            isLoading: false,
+            dataSource: responseJson
+          }, function() {
+            // In this block you can do something with new state.
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
 
 
   render() {
@@ -76,20 +74,18 @@ componentDidMount() {
             <Button
             style = {{ justifyContent: 'center', alignItems: 'center' }}
             title="Click here to Logout" onPress={ this.logout } />
-            <ListView
+            <FlatList
 
-              dataSource={this.state.dataSource}
+              data={ this.state.dataSource }
 
-              renderSeparator= {this.ListViewItemSeparator}
+              ItemSeparatorComponent = {this.FlatListItemSeparator}
+              horizontal ={true}
 
-              renderRow={ (rowData) => <Text style={styles.rowViewContainer}>
+              renderItem={({item}) => <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}><Text style={styles.FlatListItemStyle}  > {item.username} </Text></View>}
 
-                        {rowData.username}
+              keyExtractor={(item, index) => index}
 
-                        </Text> }
-
-            />
-
+         />
 
          </View>
        );
@@ -98,17 +94,17 @@ componentDidMount() {
 
 
 
-ListViewItemSeparator = () => {
-    return (
-      <View
-        style={{
-          height: .5,
-          width: "100%",
-          backgroundColor: "#000",
-        }}
-      />
-    );
-  }
+   FlatListItemSeparator = () => {
+       return (
+         <View
+           style={{
+             height: 1,
+             width: "100%",
+             backgroundColor: "#607D8B",
+           }}
+         />
+       );
+     }
 const styles = StyleSheet.create({
   Maincontainer: {
     flex:1,
@@ -116,6 +112,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'blue',
   },
+  rowViewContainer: {
+    fontSize: 20,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    textAlign: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fcfbe3',
+        margin: 10,
+        width: 100,
+        marginLeft: 60
+
+  },
+  FlatListItemStyle: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+    backgroundColor: 'gold',
+    margin: 10,
+    marginLeft: 30,
+    textAlign:'center'
+  },
+
+
   welcome: {
     fontSize: 50,
     textAlign: 'center',
