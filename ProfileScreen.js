@@ -34,21 +34,28 @@ constructor(props)
   super(props);
 
   this.state = {
-  isLoading: true
+  isLoading: true,
+  username: ''
 }
 }
 
 componentDidMount() {
+  AsyncStorage.getItem('username').then((res) => console.log(res))
+      return fetch('http://www.quotin.co/React/user-list.php?username=hey' , {
+       method: 'GET',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+       }
 
-      return fetch('http://www.quotin.co/React/user-list.php')
+      })
         .then((response) => response.json())
         .then((responseJson) => {
           this.setState({
             isLoading: false,
-            dataSource: responseJson
-          }, function() {
-            // In this block you can do something with new state.
-          });
+            dataSource: responseJson,
+            },
+          );
         })
         .catch((error) => {
           console.error(error);
@@ -79,14 +86,14 @@ componentDidMount() {
               data={ this.state.dataSource }
 
               ItemSeparatorComponent = {this.FlatListItemSeparator}
-              horizontal ={true}
 
-              renderItem={({item}) => <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}><Text style={styles.FlatListItemStyle}  > {item.username} </Text></View>}
+
+              renderItem={({item}) => <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}><Text style={styles.FlatListItemStyle}  > {item.username} {item.id} </Text></View>}
 
               keyExtractor={(item, index) => index}
 
          />
-
+         <Text>{this.state.username}</Text>
          </View>
        );
      }
