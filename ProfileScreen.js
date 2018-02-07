@@ -18,16 +18,9 @@ static navigationOptions = {
   header: null,
 }
 
-logout = () =>{
-  AsyncStorage.clear()
-}
 
 
-GetItem (username) {
 
-  Alert.alert(username);
-
-}
 constructor(props)
 {
 
@@ -35,14 +28,20 @@ constructor(props)
 
   this.state = {
   isLoading: true,
-  username: ''
+  username: 'Bob'
 }
 }
+componentWillMount(){
+  AsyncStorage.getItem("username").then((value) => {
+    this.setState({"username": value});
+})
 
+}
 componentDidMount() {
-  AsyncStorage.getItem('username').then((res) => console.log(res))
-      return fetch('http://www.quotin.co/React/user-list.php?username=hey' , {
-       method: 'GET',
+
+
+      return fetch(`http://www.quotin.co/React/user-list.php?username=${this.state.username}` , {
+       method: 'POST',
        headers: {
          'Accept': 'application/json',
          'Content-Type': 'application/json',
@@ -62,6 +61,11 @@ componentDidMount() {
         });
     }
 
+    logout = () =>{
+      AsyncStorage.clear()
+      this.props.navigation.navigate('HomeScreen');
+
+    }
 
   render() {
     if (this.state.isLoading) {
@@ -71,6 +75,7 @@ componentDidMount() {
         </View>
       );
     }
+
 
       return(
 
