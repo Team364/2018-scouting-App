@@ -1,0 +1,1 @@
+For Questions, to save user input, use the GET method in the Query. 
