@@ -28,19 +28,20 @@ constructor(props)
 
   this.state = {
   isLoading: true,
-  username: 'Bob'
+  username: ''
+};
+AsyncStorage.getItem("username").then((value) => {
+  this.setState({"username": value})
+});
 }
-}
-componentWillMount(){
-  AsyncStorage.getItem("username").then((value) => {
+saveData(value){
+    AsyncStorage.setItem("username", value);
     this.setState({"username": value});
-})
-
 }
-componentDidMount() {
+componentDidUpdate() {
 
 
-      return fetch(`http://www.quotin.co/React/user-list.php?username=${this.state.username}` , {
+      return fetch(`http://www.quotin.co/React/user-info.php?username=${this.state.username}` , {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
@@ -64,6 +65,10 @@ componentDidMount() {
     logout = () =>{
       AsyncStorage.clear()
       this.props.navigation.navigate('HomeScreen');
+
+    }
+    question = () =>{
+      this.props.navigation.navigate('QuestionScreen');
 
     }
 
@@ -92,13 +97,17 @@ componentDidMount() {
 
               ItemSeparatorComponent = {this.FlatListItemSeparator}
 
-
+              horizontal= {true}
               renderItem={({item}) => <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}><Text style={styles.FlatListItemStyle}  > {item.username} {item.id} </Text></View>}
 
               keyExtractor={(item, index) => index}
 
          />
-         <Text>{this.state.username}</Text>
+
+         <Text>Hello,{this.state.username}</Text>
+         <Button
+         style = {{ justifyContent: 'center', alignItems: 'center' }}
+         title="Click here to question" onPress={ this.question } />
          </View>
        );
      }
@@ -139,11 +148,12 @@ const styles = StyleSheet.create({
   },
   FlatListItemStyle: {
     padding: 10,
-    fontSize: 18,
+    fontSize: 20,
     height: 44,
     backgroundColor: 'gold',
     margin: 10,
-    marginLeft: 30,
+    marginLeft: 40,
+    position: 'relative',
     textAlign:'center'
   },
 
