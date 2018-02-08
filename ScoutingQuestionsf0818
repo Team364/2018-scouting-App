@@ -1,16 +1,21 @@
 **Replace "this.team" with the team number**
+**Team Number is to be displayed at the top of the screen**
 
 1.)Can {this.team} score on the scale consistently?:
   Buttons: Yes, No;
+  --QuickFact
   
 2.)Can {this.team} score on the switch consitstently?:
   Buttons: Yes, No;
+  --QuickFact
   
 3.)Please give an estimate of {this.team}'s Cycle Time:
   Text Response: "#" seconds;
+  --QuickFact
   
 4.)Does {this.team} have an autonomous?:
   Buttons: Yes, No;
+  --QuickFact
   
 5.)Does {this.team} cross the line in autonomous?:
   Buttons: Yes, No;
