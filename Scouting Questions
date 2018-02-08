@@ -1,0 +1,53 @@
+**Replace "this.team" with the team number**
+
+1.)Can {this.team} score on the scale consistently?:
+  Buttons: Yes, No;
+  
+2.)Can {this.team} score on the switch consitstently?:
+  Buttons: Yes, No;
+  
+3.)Please give an estimate of {this.team}'s Cycle Time:
+  Text Response: "#" seconds;
+  
+4.)Does {this.team} have an autonomous?:
+  Buttons: Yes, No;
+  
+5.)Does {this.team} cross the line in autonomous?:
+  Buttons: Yes, No;
+  
+6.)Does {this.team} score on the switch in autonomous?:
+  Buttons: Yes, No;
+  
+7.)Does {this.team} score in the vault in autonomous?:
+  Buttons: Yes, No;
+  
+8.)Does {this.team} score in the vault?:
+  Buttons: Yes, No;
+
+9.)Which power-up does {this.team} enable during the match?:
+  Buttons: Force, Boost, Leviatate, No Power Up;
+  
+10.)How many cubes does {this.team} score per match?:
+  Text Response: "#" seconds;
+ 
+11.)Does {this.team} hang at the end of the match?:
+  Buttons: Yes, No;
+  
+12.)What does {this.team} focus on during the match?:
+  Buttons: Vault, Scale, Switch, Defense?
+  
+13.)What penalties does {this.team} commit?
+  Buttons: Foul, Red Card, Yellow Card, Disabled, Disqualified, No Penalty;
+  
+14.)Describe {this.team}'s autonomous:
+  Text Response: [Expect up to a paragraph];
+ 
+15.)Describe {this.team}'s endgame:
+   Text Response: [Expect up to a paragraph];
+   
+16.)Describe {this.team}'s strategy:
+   Text Response: [Expect up to a paragraph];
+   
+17.)Addtional comments:
+   Text Response: [Expect up to a paragraph];
+  
