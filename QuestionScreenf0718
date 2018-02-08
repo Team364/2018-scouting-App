@@ -1,0 +1,192 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+
+import React, { Component } from 'react';
+import { AppRegistry, Platform, StyleSheet, Text, View, Button, Navigator, TouchableHighlight, AsyncStorage, ViewList, ActivityIndicator,ListView, FlatList, TextInput, TouchableOpacity} from 'react-native';
+export default class QuestionScreen extends Component {
+  LearnMore1 (){
+    console.log ('New User pressed!');
+}
+LearnMore2 (){
+  console.log ('Return user Pressed!');
+}
+static navigationOptions = {
+  title: null ,
+  header: null,
+}
+
+
+
+
+constructor(props) {
+
+   super(props)
+
+   this.state = {
+     username: '',
+     TextInput_Student_Name: '',
+     TextInput_Student_Class: '',
+     TextInput_Student_PhoneNumber: '',
+     TextInput_Student_Email: '',
+
+   }
+
+ }
+InsertRecords = () =>{
+
+     fetch('https://reactnativecode.000webhostapp.com/Student/InsertStudentData.php', {
+     method: 'POST',
+     headers: {
+       'Accept': 'application/json',
+       'Content-Type': 'application/json',
+     },
+     body: JSON.stringify({
+
+       student_name : this.state.TextInput_Student_Name,
+
+       student_class : this.state.TextInput_Student_Class,
+
+       student_phone_number : this.state.TextInput_Student_PhoneNumber,
+
+       student_email: this.state.TextInput_Student_Email
+
+     })
+
+     }).then((response) => response.json())
+         .then((responseJson) => {
+
+           // Showing response message coming from server after inserting records.
+           Alert.alert(responseJson);
+
+         }).catch((error) => {
+           console.error(error);
+         });
+
+}
+
+  render() {
+
+
+
+      return(
+
+        <View style={styles.MainContainer}>
+
+
+       <Text style={{fontSize: 20, textAlign: 'center', marginBottom: 7}}> Student Registration Form </Text>
+
+       <TextInput
+
+         placeholder="Enter Student Name"
+
+         onChangeText={ InputValue => this.setState({ TextInput_Student_Name : InputValue }) }
+
+         underlineColorAndroid='transparent'
+
+         style={styles.TextInputStyleClass}
+       />
+
+      <TextInput
+
+         placeholder="Enter Student Class"
+
+         onChangeText={ InputValue => this.setState({ TextInput_Student_Class : InputValue }) }
+
+         underlineColorAndroid='transparent'
+
+         style={styles.TextInputStyleClass}
+       />
+
+      <TextInput
+
+         placeholder="Enter Student Phone Number"
+
+         onChangeText={ InputValue => this.setState({ TextInput_Student_PhoneNumber : InputValue }) }
+
+         underlineColorAndroid='transparent'
+
+         style={styles.TextInputStyleClass}
+       />
+
+       <TextInput
+
+         placeholder="Enter Student Email"
+
+         onChangeText={ InputValue => this.setState({ TextInput_Student_Email : InputValue }) }
+
+         underlineColorAndroid='transparent'
+
+         style={styles.TextInputStyleClass}
+       />
+
+      <TouchableOpacity activeOpacity = { .4 } style={styles.TouchableOpacityStyle} onPress={this.InsertRecords} >
+
+        <Text style={styles.TextStyle}> INSERT STUDENT RECORD TO SERVER </Text>
+
+      </TouchableOpacity>
+
+
+</View>
+
+       );
+     }
+   }
+
+
+const styles = StyleSheet.create({
+  MainContainer :{
+
+     alignItems: 'center',
+     flex:1,
+     paddingTop: 30,
+     backgroundColor: '#fff'
+
+   },
+
+   MainContainer_For_Show_StudentList_Activity :{
+
+     flex:1,
+     paddingTop: (Platform.OS == 'ios') ? 20 : 0,
+     marginLeft: 5,
+     marginRight: 5
+
+     },
+
+   TextInputStyleClass: {
+
+   textAlign: 'center',
+   width: '90%',
+   marginBottom: 7,
+   height: 40,
+   borderWidth: 1,
+   borderColor: '#FF5722',
+   borderRadius: 5 ,
+
+   },
+
+   TouchableOpacityStyle: {
+
+     paddingTop:10,
+     paddingBottom:10,
+     borderRadius:5,
+     marginBottom:7,
+     width: '90%',
+     backgroundColor: '#00BCD4'
+
+   },
+
+   TextStyle:{
+     color:'#fff',
+     textAlign:'center',
+   },
+
+   rowViewContainer: {
+     fontSize: 20,
+     paddingRight: 10,
+     paddingTop: 10,
+     paddingBottom: 10,
+   }
+});
