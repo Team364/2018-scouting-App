@@ -1,0 +1,4 @@
+  <Image
+        source={require('../fusion-scouting-app-logo.jpg')}
+        style={{width: 300, height: 300}}
+      />
