@@ -1,56 +1,56 @@
-**Replace "this.team" with the team number**
+**Replace "this.state.team_num" with the team number**
 **Team Number is to be displayed at the top of the screen**
 
-1.)Can {this.team} score on the scale consistently?:
+1.)Can {this.state.team_num} score on the scale consistently?:
   Buttons: Yes, No;
   --QuickFact
   
-2.)Can {this.team} score on the switch consitstently?:
+2.)Can {this.state.team_num} score on the switch consitstently?:
   Buttons: Yes, No;
   --QuickFact
   
-3.)Please give an estimate of {this.team}'s Cycle Time:
+3.)Please give an estimate of {this.state.team_num}'s Cycle Time:
   Text Response: "#" seconds;
   --QuickFact
   
-4.)Does {this.team} have an autonomous?:
+4.)Does {this.state.team_num} have an autonomous?:
   Buttons: Yes, No;
   --QuickFact
   
-5.)Does {this.team} cross the line in autonomous?:
+5.)Does {this.state.team_num} cross the line in autonomous?:
   Buttons: Yes, No;
   
-6.)Does {this.team} score on the switch in autonomous?:
+6.)Does {this.state.team_num} score on the switch in autonomous?:
   Buttons: Yes, No;
   
-7.)Does {this.team} score in the vault in autonomous?:
+7.)Does {this.state.team_num} score in the vault in autonomous?:
   Buttons: Yes, No;
   
-8.)Does {this.team} score in the vault?:
+8.)Does {this.state.team_num} score in the vault?:
   Buttons: Yes, No;
 
-9.)Which power-up does {this.team} enable during the match?:
+9.)Which power-up does {this.state.team_num} enable during the match?:
   Buttons: Force, Boost, Leviatate, No Power Up;
   
-10.)How many cubes does {this.team} score per match?:
+10.)How many cubes does {this.state.team_num} score per match?:
   Text Response: "#" seconds;
  
-11.)Does {this.team} hang at the end of the match?:
+11.)Does {this.state.team_num} hang at the end of the match?:
   Buttons: Yes, No;
   
-12.)What does {this.team} focus on during the match?:
+12.)What does {this.state.team_num} focus on during the match?:
   Buttons: Vault, Scale, Switch, Defense?
   
-13.)What penalties does {this.team} commit?
+13.)What penalties does {this.state.team_num} commit?
   Buttons: Foul, Red Card, Yellow Card, Disabled, Disqualified, No Penalty;
   
-14.)Describe {this.team}'s autonomous:
+14.)Describe {this.state.team_num}'s autonomous:
   Text Response: [Expect up to a paragraph];
  
-15.)Describe {this.team}'s endgame:
+15.)Describe {this.state.team_num}'s endgame:
    Text Response: [Expect up to a paragraph];
    
-16.)Describe {this.team}'s strategy:
+16.)Describe {this.state.team_num}'s strategy:
    Text Response: [Expect up to a paragraph];
    
 17.)Addtional comments:
