@@ -1,4 +1,4 @@
-# j2718
+# 2018 Scouting App
 Team Fusion #364 Scouting Application for the 2018 Build season
 
 Prerequistes:
