@@ -1,8 +1,0 @@
-{ "name": "Scouting 364",
-  "displayName": "Scouting 364",
-  "expo": { "name": "j2718", "slug": "j2718", "sdkVersion": "25.0.0",
-    "ios": { "supportsTablet": true, "bundleIdentifier": "com.fusion364.scouting364" },
-    "android": { "package": "com.fusion364.scouting364"  }
-  },
-
-}

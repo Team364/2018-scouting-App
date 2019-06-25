@@ -1,4 +1,0 @@
-To allow testing for iOS, you need EXPO. 
-
-1) Download Expo XDE for windows
-2) yarn add expo in the cmd.

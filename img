@@ -1,6 +1,0 @@
-      <Image
-       style={{width: 250, height: 250}}
-       source={{uri: 'https://lh3.googleusercontent.com/-E0B0QO2w0ag/WnDcoSoI3xI/AAAAAAAAFq4/LT4t1sJ1ESsjn_MpLOnaw-TIUbnAvksiQCJoC/w530-h530-n-rw/fusion%2Bscouting%2Bapp%2Blogo.jpg'}}
-     />
-     
-     backgroundColor: '#FF891F',
