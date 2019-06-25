@@ -2,7 +2,7 @@
 Testing Fusion Scouting Application for the 2018 Build season
 
 Prerequistes:
-Download Atom.io
+Download Atom.io \n
 Download Node
 Install Android Studio/XCode
 Install SDK Emulator Android 6.0.
