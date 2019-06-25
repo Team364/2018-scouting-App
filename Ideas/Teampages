@@ -1,3 +1,0 @@
-We also need to make sure that if we search a team, we can see all the information input about them. I think we should take the most frequent response about a team and output that on the team's profile page. These blocks(Which harbor the quickfact-esc frequent response) should be clickable. When clicked on, it should load a screen that outputs all information output about as specific question
-
-New task: we need to figure out how to determine which output is most frequent for an answer that has preset answers. So if we get 12 yeses and 3 nos for question 1, we should output yes for if that team can score on the scale on their profile page.

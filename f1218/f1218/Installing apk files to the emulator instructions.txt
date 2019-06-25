@@ -1,6 +1,0 @@
-Instructions:
-1.) Open Command Prompt
-2.) Navigate to C:\Users\clinton.brawley\AppData\Local\Android\Sdk\platform-tools
-3.) type "adb install [file name] into the terminal
-		example:  C:\Users\clinton.brawley\Downloads\Subway-Surfers_v1.82.0_apkpure.com.apk
-4.) Hit enter
